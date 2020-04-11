@@ -2,10 +2,74 @@
 <html>
 <body>
 
-<h2>JavaScript Functions</h2>
+<h2>Catan Bot 2020</h2>
 
 <script>
 var cardStone = 0;
+var cardWheat = 0;
+var cardSheep = 0;
+var cardBrick = 0;
+var cardWood = 0;
+
+function addCard(vCardType) {
+  switch (vCardType) {
+    case 1 : 
+      cardStone = cardStone + 1;
+      document.getElementById("pcardStone").innerHTML = "Stone Cards: " + cardStone;
+      break;
+    case 2 : 
+      cardWheat = cardWheat + 1;
+      document.getElementById("pcardWheat").innerHTML = "Wheat Cards: " + cardWheat;
+      break;
+    case 3 : 
+      cardSheep = cardSheep + 1;
+      document.getElementById("pcardSheep").innerHTML = "Sheep Cards: " + cardSheep;
+      break;
+    case 4 : 
+      cardBrick = cardBrick + 1;
+      document.getElementById("pcardBrick").innerHTML = "Brick Cards: " + cardBrick;
+      break;
+    case 5 : 
+      cardWood = cardWood + 1;
+      document.getElementById("pcardWood").innerHTML = "Wood Cards: " + cardWood;
+      break;
+    default:
+      document.getElementById("pcardStone").innerHTML = "Hi";
+  }
+}
+
+function subtractCard(vCardType) {
+  switch (vCardType) {
+    case 1 : 
+      cardStone = cardStone - 1;
+      if (cardStone < 0) cardStone = 0;
+      document.getElementById("pcardStone").innerHTML = "Stone Cards: " + cardStone;
+      break;
+    case 2 : 
+      cardWheat = cardWheat - 1;
+      if (cardWheat < 0) cardWheat = 0;
+      document.getElementById("pcardWheat").innerHTML = "Wheat Cards: " + cardWheat;
+      break;
+    case 3 : 
+      cardSheep = cardSheep - 1;
+      if (cardSheep < 0) cardSheep = 0;
+      document.getElementById("pcardSheep").innerHTML = "Sheep Cards: " + cardSheep;
+      break;
+    case 4 : 
+      cardBrick = cardBrick - 1;
+      if (cardBrick < 0) cardBrick = 0;
+      document.getElementById("pcardBrick").innerHTML = "Brick Cards: " + cardBrick;
+      break;
+    case 5 : 
+      cardWood = cardWood - 1;
+      if (cardWood < 0) cardWood = 0;
+      document.getElementById("pcardWood").innerHTML = "Wood Cards: " + cardWood;
+      break;
+    default:
+      document.getElementById("pcardStone").innerHTML = "Hi";
+  }
+}
+
 
 function addStone() {
   cardStone = cardStone + 1;
@@ -14,19 +78,16 @@ function addStone() {
 </script>
 
 <p>Cards</p>
-<button onclick="addStone()">Stone +</button><button onclick="subtractStone()">Stone -</button>
-<p></p>
-<button onclick="addWheat()">Wheat +</button><button onclick="subtractWheat()">Wheat -</button>
-<p></p>
-<button onclick="addSheep()">Sheep +</button><button onclick="subtractSheep()">Sheep -</button>
-<p></p>
-<button onclick="addBrick()">Brick +</button><button onclick="subtractBrick()">Brick -</button>
-<p></p>
-<button onclick="addWood()">Wood +</button><button onclick="subtractWood()">Wood -</button>
-
-
-<p id="pcardStone">Stone</p>
-
+<p id="pcardStone">Stone Cards:</p>
+<button onclick="addCard(1)">Stone +</button><button onclick="subtractCard(1)">Stone -</button>
+<p id="pcardWheat">Wheat Cards:</p>
+<button onclick="addCard(2)">Wheat +</button><button onclick="subtractCard(2)">Wheat -</button>
+<p id="pcardSheep">Sheep Cards:</p>
+<button onclick="addCard(3)">Sheep +</button><button onclick="subtractCard(3)">Sheep -</button>
+<p id="pcardBrick">Brick Cards:</p>
+<button onclick="addCard(4)">Brick +</button><button onclick="subtractCard(4)">Brick -</button>
+<p id="pcardWood">Wood Cards:</p>
+<button onclick="addCard(5)">Wood +</button><button onclick="subtractCard(5)">Wood -</button>
 
 <p id="demo"></p>
 
