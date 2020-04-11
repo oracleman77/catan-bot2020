@@ -18,6 +18,9 @@ var portSheep = 0;
 var portBrick = 0;
 var portWood = 0;
 
+var victoryPoints = 0;
+var playerCount = 0;
+
 //Game board
   //Odds 2 12 = 3%, 3 11 6%, 4 10 8%, 5 9 11%, 6 8 14%, 7 17%
   //Row 1 is 3 cards
@@ -27,6 +30,7 @@ var portWood = 0;
   //Row 5 is 3 cards
 //Game play
   //Count turns
+  //Count victory points
   //Player count - how many players
   //Special cards - longest road, largest army
   //Development cards - Knight, Monopoly, Road Building, Victory Point, Year of Plenty
@@ -37,7 +41,7 @@ var portWood = 0;
   //Roll 7
   //Initiate trade
   //Respond to trade request
-  //Take turn - do things like build, trade
+  //Take turn - do things like build, trade, objectives like what it wants to build first based on how many turns have been taken
 
 function addCard(vCardType) {
   switch (vCardType) {
@@ -125,9 +129,28 @@ function togglePort(vPortType) {
       document.querySelector('#bportWood').innerText = "Wood Port: " + portWood;      
   }
 }
+
+function updatePlayerCount(a) {
+  playerCount = playerCount + a;
+  if (playerCount < 0) playerCount = 0;
+  document.getElementById("pPlayers").innerHTML = "Player Count: " + playerCount;
+  return playerCount;
+}
+
+function takeTurn() {
+  //roll dice
+  //
+  return 0;
+}
+
 </script>
 
 <h2>Actions</h2>
+<button onclick="takeTurn()">Begin turn</button>
+<button onclick="rollSeven()">Roll 7</button>
+<button onclick="getRobbed()">Get robbed</button>
+<button onclick="robPlayer()">Rob a player</button>
+<button onclick="getTrade()">Respond to trade request</button>
 
 <h2>Cards</h2>
 <p id="pcardStone">Stone Cards:</p>
@@ -149,5 +172,14 @@ function togglePort(vPortType) {
 <button id="bportBrick" onclick="togglePort(4)">Brick Port: 0</button>
 <button id="bportWood" onclick="togglePort(5)">Wood Port: 0</button>
 
+<h2>Assets</h2>
+Number of settlements
+Number of cities
+Number of roads
+Development cards
+
+<h2>Settings</h2>
+<p id="pPlayers">Player Count: 0</p>
+<button onclick="updatePlayerCount(1)">Player +</button><button onclick="updatePlayerCount(-1)">Player -</button>
 </body>
 </html>
