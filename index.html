@@ -10,6 +10,13 @@ var cardWheat = 0;
 var cardSheep = 0;
 var cardBrick = 0;
 var cardWood = 0;
+
+var portGeneric = 0;
+var portWheat = 0;
+var portSheep = 0;
+var portBrick = 0;
+var portWood = 0;
+
 //Game board
   //Odds 2 12 = 3%, 3 11 6%, 4 10 8%, 5 9 11%, 6 8 14%, 7 17%
   //Row 1 is 3 cards
@@ -22,11 +29,13 @@ var cardWood = 0;
   //Player count - how many players
   //Special cards - longest road, largest army
   //Development cards - Knight, Monopoly, Road Building, Victory Point, Year of Plenty
-  //Ports
+  //Ports - generic 3:1, Stone 2:1, Wheat 2:1, Sheep 2:1, Brick 2:1, Wood 2:1
   //Build - Road, Settlement, City, Development Card
   //Rob another player
   //Get robbed
   //Roll 7
+  //Initiate trade
+  //Respond to trade request
 
 function addCard(vCardType) {
   switch (vCardType) {
@@ -87,10 +96,8 @@ function subtractCard(vCardType) {
   }
 }
 
-
-function addStone() {
-  cardStone = cardStone + 1;
-  document.getElementById("pcardStone").innerHTML = "Stone Cards: " + cardStone;
+function togglePort(vPortType) {
+  return 0;
 }
 </script>
 
@@ -107,6 +114,13 @@ function addStone() {
 <button onclick="addCard(4)">Brick +</button><button onclick="subtractCard(4)">Brick -</button>
 <p id="pcardWood">Wood Cards:</p>
 <button onclick="addCard(5)">Wood +</button><button onclick="subtractCard(5)">Wood -</button>
+
+<h2>Ports</h2>
+<button onclick="togglePort(1)">Stone Port: No</button>
+<button onclick="togglePort(2)">Wheat Port: No</button>
+<button onclick="togglePort(3)">Sheep Port: No</button>
+<button onclick="togglePort(4)">Brick Port: No</button>
+<button onclick="togglePort(5)">Wood Port: No</button>
 
 </body>
 </html>
