@@ -2,7 +2,7 @@
 <html>
 <body>
 
-<h2>Catan Bot 2020</h2>
+<h1>Catan Bot 2020</h1>
 
 <script>
 var cardStone = 0;
@@ -10,6 +10,23 @@ var cardWheat = 0;
 var cardSheep = 0;
 var cardBrick = 0;
 var cardWood = 0;
+//Game board
+  //Odds 2 12 = 3%, 3 11 6%, 4 10 8%, 5 9 11%, 6 8 14%, 7 17%
+  //Row 1 is 3 cards
+  //Row 2 is 4 cards
+  //Row 3 is 5 cards
+  //Row 4 is 4 cards
+  //Row 5 is 3 cards
+//Game play
+  //Count turns
+  //Player count - how many players
+  //Special cards - longest road, largest army
+  //Development cards - Knight, Monopoly, Road Building, Victory Point, Year of Plenty
+  //Ports
+  //Build - Road, Settlement, City, Development Card
+  //Rob another player
+  //Get robbed
+  //Roll 7
 
 function addCard(vCardType) {
   switch (vCardType) {
@@ -77,7 +94,9 @@ function addStone() {
 }
 </script>
 
-<p>Cards</p>
+<h2>Actions</h2>
+
+<h2>Cards</h2>
 <p id="pcardStone">Stone Cards:</p>
 <button onclick="addCard(1)">Stone +</button><button onclick="subtractCard(1)">Stone -</button>
 <p id="pcardWheat">Wheat Cards:</p>
@@ -88,17 +107,6 @@ function addStone() {
 <button onclick="addCard(4)">Brick +</button><button onclick="subtractCard(4)">Brick -</button>
 <p id="pcardWood">Wood Cards:</p>
 <button onclick="addCard(5)">Wood +</button><button onclick="subtractCard(5)">Wood -</button>
-
-<p id="demo"></p>
-
-<script>
-var x = myFunction(3, 3);
-document.getElementById("demo").innerHTML = x;
-
-function myFunction(a, b) {
-  return a * b;
-}
-</script>
 
 </body>
 </html>
