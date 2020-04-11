@@ -12,6 +12,7 @@ var cardBrick = 0;
 var cardWood = 0;
 
 var portGeneric = 0;
+var portStone = 0;
 var portWheat = 0;
 var portSheep = 0;
 var portBrick = 0;
@@ -36,6 +37,7 @@ var portWood = 0;
   //Roll 7
   //Initiate trade
   //Respond to trade request
+  //Take turn - do things like build, trade
 
 function addCard(vCardType) {
   switch (vCardType) {
@@ -97,7 +99,31 @@ function subtractCard(vCardType) {
 }
 
 function togglePort(vPortType) {
-  return 0;
+  switch (vPortType) {
+    case 0 :
+      if (portGeneric == 0) {portGeneric = 1;} else {portGeneric = 0;}
+      document.querySelector('#bportGeneric').innerText = "Generic Port: " + portGeneric;
+      break;
+    case 1 :
+      if (portStone == 0) {portStone = 1;} else {portStone = 0;}
+      document.querySelector('#bportStone').innerText = "Stone Port: " + portStone;
+      break;
+    case 2 :
+      if (portWheat == 0) {portWheat = 1;} else {portWheat = 0;}
+      document.querySelector('#bportWheat').innerText = "Wheat Port: " + portWheat;
+      break;
+    case 3 :
+      if (portSheep == 0) {portSheep = 1;} else {portSheep = 0;}
+      document.querySelector('#bportSheep').innerText = "Sheep Port: " + portSheep;
+      break;
+    case 4 :
+      if (portBrick == 0) {portBrick = 1;} else {portBrick = 0;}
+      document.querySelector('#bportBrick').innerText = "Brick Port: " + portBrick;
+      break;
+    case 5 :
+      if (portWood == 0) {portWood = 1;} else {portWood = 0;}
+      document.querySelector('#bportWood').innerText = "Wood Port: " + portWood;      
+  }
 }
 </script>
 
@@ -116,11 +142,12 @@ function togglePort(vPortType) {
 <button onclick="addCard(5)">Wood +</button><button onclick="subtractCard(5)">Wood -</button>
 
 <h2>Ports</h2>
-<button onclick="togglePort(1)">Stone Port: No</button>
-<button onclick="togglePort(2)">Wheat Port: No</button>
-<button onclick="togglePort(3)">Sheep Port: No</button>
-<button onclick="togglePort(4)">Brick Port: No</button>
-<button onclick="togglePort(5)">Wood Port: No</button>
+<button id="bportGeneric" onclick="togglePort(0)">Generic Port: 0</button>
+<button id="bportStone" onclick="togglePort(1)">Stone Port: 0</button>
+<button id="bportWheat" onclick="togglePort(2)">Wheat Port: 0</button>
+<button id="bportSheep" onclick="togglePort(3)">Sheep Port: 0</button>
+<button id="bportBrick" onclick="togglePort(4)">Brick Port: 0</button>
+<button id="bportWood" onclick="togglePort(5)">Wood Port: 0</button>
 
 </body>
 </html>
