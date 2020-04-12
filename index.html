@@ -18,8 +18,22 @@ var portSheep = 0;
 var portBrick = 0;
 var portWood = 0;
 
+var assetSettlement = 0;
+var assetCity = 0;
+var assetRoad = 0;
+
+var devcardKnight = 0;
+var devcardMonopoly = 0;
+var devcardRoad = 0;
+var devcardVictory = 0;
+var devcardPlenty = 0;
+
+var specialArmy = 0;
+var specialRoad = 0;
+
 var victoryPoints = 0;
 var playerCount = 0;
+var turnCount = 0;
 
 //Game board
   //Odds 2 12 = 3%, 3 11 6%, 4 10 8%, 5 9 11%, 6 8 14%, 7 17%
@@ -139,7 +153,12 @@ function updatePlayerCount(a) {
 
 function takeTurn() {
   //roll dice
-  //
+  //get resource cards
+  //initiate "roll 7" to get rid of cards if I roll a 7
+  //initiate "rob a player" if I roll a 7
+  //initiate "trade" if resources are needed to achieve an objective
+  //build if I have enough cards
+  //turn is over
   return 0;
 }
 
@@ -150,7 +169,8 @@ function takeTurn() {
 <button onclick="rollSeven()">Roll 7</button>
 <button onclick="getRobbed()">Get robbed</button>
 <button onclick="robPlayer()">Rob a player</button>
-<button onclick="getTrade()">Respond to trade request</button>
+<button onclick="respondTrade()">Respond to trade request</button>
+<button onclick="startTrade()">Initiate trade</button>
 
 <h2>Cards</h2>
 <p id="pcardStone">Stone Cards:</p>
@@ -177,6 +197,7 @@ Number of settlements
 Number of cities
 Number of roads
 Development cards
+Special cards
 
 <h2>Settings</h2>
 <p id="pPlayers">Player Count: 0</p>
