@@ -18,9 +18,9 @@ var portSheep = 0;
 var portBrick = 0;
 var portWood = 0;
 
-var assetSettlement = 0;
+var assetSettlement = 1;
 var assetCity = 0;
-var assetRoad = 0;
+var assetRoad = 1;
 
 var devcardKnight = 0;
 var devcardMonopoly = 0;
@@ -213,10 +213,12 @@ function takeTurn() {
 <button id="bportWood" onclick="togglePort(5)">Wood Port: 0</button>
 
 <h2>Assets</h2>
-Number of settlements
-Number of cities
-Number of roads
-Development cards
+<p id="pSettlements">Settlements: 1</p>
+<button onclick="updateAsset(0,1)">Settlements +</button><button onclick="updateAsset(0,-1)">Settlements -</button>
+<p id="pCities">Cities: 0</p>
+<button onclick="updateAsset(1,1)">Cities +</button><button onclick="updateAsset(1,-1)">Cities -</button>
+<p id="pRoads">Roads: 1</p>
+<button onclick="updateAsset(2,1)">Roads +</button><button onclick="updateAsset(2,-1)">Roads -</button>
 <button id="bspecialArmy" onclick="toggleSpecial(0)">Largest Army: 0</button>
 <button id="bspecialRoad" onclick="toggleSpecial(1)">Longest Road: 0</button>
 
