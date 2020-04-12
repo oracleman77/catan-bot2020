@@ -52,6 +52,7 @@ var turnCount = 0;
   //Build - Road, Settlement, City, Development Card
   //Rob another player
   //Get robbed
+  //Respond to monopoloy card being played
   //Roll 7
   //Initiate trade
   //Respond to trade request
@@ -175,6 +176,7 @@ function takeTurn() {
   //initiate "rob a player" if I roll a 7
   //initiate "trade" if resources are needed to achieve an objective
   //build if I have enough cards
+  //update victory points? This probably happens in each function.
   //turn is over
   return 0;
 }
@@ -219,6 +221,7 @@ function takeTurn() {
 <button onclick="updateAsset(1,1)">Cities +</button><button onclick="updateAsset(1,-1)">Cities -</button>
 <p id="pRoads">Roads: 1</p>
 <button onclick="updateAsset(2,1)">Roads +</button><button onclick="updateAsset(2,-1)">Roads -</button>
+<p id="pSpecials">Specials</p>
 <button id="bspecialArmy" onclick="toggleSpecial(0)">Largest Army: 0</button>
 <button id="bspecialRoad" onclick="toggleSpecial(1)">Longest Road: 0</button>
 
