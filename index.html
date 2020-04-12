@@ -170,13 +170,64 @@ function toggleSpecial(b) {
   return 0;
 }
 
+//function rollDice()
+  //Add audio for dice rolls
+  
+//function getResourceCard()
+  //Check roll
+  //Check spaces I own for the roll number
+  //If space is a settlement then get 1 resource card
+  //If space is a city then get 2 resource cards
+  
+//function checkObjective()
+  //Build 2 roads
+  //Build settlements as soon as 2 roads are available or the toggle button says that I can build a settlement
+  //Build a city if I have a settlement and obtain resources for a city
+  //Go for longest road
+  //Go for largest army - only if I am getting development cards that lend themselves toward this goal or if I get wheat, stone and sheep or can get those resources
+
+//function rollSeven()
+  //This function is used when other players roll a 7
+  //Check resource card count
+  //If I have more than 7 cards then select half to give away
+  //Otherwise, do nothing
+  
+//function getRobbed()
+  //Check resource card count
+  //If I do not have any cards then say "I do not have any cards"
+  //If card count is greater than zero then grant a random resource card that is in my deck
+  
+//function robPLayer()
+  //Randomly select a player
+  //Human player randomly picks a card for me
+  //Human player updates my resource card count
+  
+//function respondTrade()
+  
+//function startTrade()
+  
+//function buildRoad()
+  
+//function buildSettlement()
+  //Can I build a settlement? Do I have 2 contiguous roads with a clearing for a settlement? Add toggle button.
+  //If a settlement is build then
+  //Enter space number and resource type - repeat for each space touching the new settlement - record that this is a settlement
+
+//function buildCity()
+  //list the settlements
+  //update the selected settlement to a city for each space touching the city
+  
+//function buildDevCard()
+  
 function takeTurn() {
   //roll dice
   //get resource cards
   //initiate "roll 7" to get rid of cards if I roll a 7
   //initiate "rob a player" if I roll a 7
-  //initiate "trade" if resources are needed to achieve an objective
-  //build if I have enough cards
+  //Check current objective(s)
+    //Ask if I can build a settlement
+    //initiate "trade" if resources are needed to achieve an objective
+    //build if I have enough cards
   //update victory points? This probably happens in each function.
   //turn is over
   return 0;
