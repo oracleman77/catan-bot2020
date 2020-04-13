@@ -45,8 +45,8 @@ var turnCount = 0;
 //Game play
   //Count turns
   //Count victory points
-  //Player count - how many players
-  //Special cards - longest road, largest army
+  //xxPlayer count - how many players
+  //xxSpecial cards - longest road, largest army
   //Development cards - Knight, Monopoly, Road Building, Victory Point, Year of Plenty
   //Ports - generic 3:1, Stone 2:1, Wheat 2:1, Sheep 2:1, Brick 2:1, Wood 2:1
   //Build - Road, Settlement, City, Development Card
@@ -57,7 +57,7 @@ var turnCount = 0;
   //Roll 7
   //Initiate trade
   //Respond to trade request
-  //Take turn - do things like build, trade, objectives like what it wants to build first based on how many turns have been taken, play development card
+  //Take turn - do things like build, trade, turn in cards, objectives like what it wants to build first based on how many turns have been taken, play development card
 
 function updateAsset(vType, vAmount) {
   switch (vType) {
@@ -191,8 +191,11 @@ function toggleSpecial(b) {
   return 0;
 }
 
-//function rollDice()
-  //Add audio for dice rolls
+function rollDice() {
+  var vRollValue = Math.floor(Math.random() * ((6 - 1) + 1) + 1);
+  //Add audio for dice rolls  
+  return vRollValue;
+}
   
 //function getResourceCard()
   //Check roll
@@ -242,6 +245,10 @@ function toggleSpecial(b) {
   
 function takeTurn() {
   //roll dice
+  var vDiceRoll1 = rollDice();
+  var vDiceRoll2 = rollDice();
+  var vTotalRoll = vDiceRoll1 + vDiceRoll2;
+  document.getElementById("dNotifications").innerHTML = "I rolled a: " + vTotalRoll;
   //get resource cards
   //initiate "roll 7" to get rid of cards if I roll a 7
   //initiate "rob a player" if I roll a 7
@@ -260,8 +267,9 @@ function takeTurn() {
 <p id="pVictoryPoints">Victory Points: 0</p>
 
 <h2>Actions</h2>
+<div id="dNotifications">Watch this space for notifications.</div>
 <button onclick="takeTurn()">Begin turn</button>
-<button onclick="rollSeven()">Roll 7</button>
+<button onclick="rollSeven()">Someone rolled a 7</button>
 <button onclick="getRobbed()">Get robbed</button>
 <button onclick="robPlayer()">Rob a player</button>
 <button onclick="respondTrade()">Respond to trade request</button>
