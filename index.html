@@ -18,9 +18,9 @@ var portSheep = 0;
 var portBrick = 0;
 var portWood = 0;
 
-var assetSettlement = 1;
+var assetSettlement = 0;
 var assetCity = 0;
-var assetRoad = 1;
+var assetRoad = 0;
 
 var devcardKnight = 0;
 var devcardMonopoly = 0;
@@ -58,6 +58,27 @@ var turnCount = 0;
   //Initiate trade
   //Respond to trade request
   //Take turn - do things like build, trade, objectives like what it wants to build first based on how many turns have been taken, play development card
+
+function updateAsset(vType, vAmount) {
+  switch (vType) {
+    case 0 :
+      assetSettlement = assetSettlement + vAmount;
+      if (assetSettlement < 0) assetSettlement = 0;
+      document.getElementById("pSettlements").innerHTML = "Settlements: " + assetSettlement;
+      break;
+    case 1 :
+      assetCity = assetCity + vAmount;
+      if (assetCity < 0) assetCity = 0;
+      document.getElementById("pCities").innerHTML = "Cities: " + assetCity;      
+      break;
+    case 2 :
+      assetRoad = assetRoad + vAmount;
+      if (assetRoad < 0) assetRoad = 0;
+      document.getElementById("pRoads").innerHTML = "Roads: " + assetRoad;      
+      break;      
+  }
+  return 0;
+}
 
 function addCard(vCardType) {
   switch (vCardType) {
@@ -267,11 +288,11 @@ function takeTurn() {
 <button id="bportWood" onclick="togglePort(5)">Wood Port: 0</button>
 
 <h2>Assets</h2>
-<p id="pSettlements">Settlements: 1</p>
+<p id="pSettlements">Settlements: 0</p>
 <button onclick="updateAsset(0,1)">Settlements +</button><button onclick="updateAsset(0,-1)">Settlements -</button>
 <p id="pCities">Cities: 0</p>
 <button onclick="updateAsset(1,1)">Cities +</button><button onclick="updateAsset(1,-1)">Cities -</button>
-<p id="pRoads">Roads: 1</p>
+<p id="pRoads">Roads: 0</p>
 <button onclick="updateAsset(2,1)">Roads +</button><button onclick="updateAsset(2,-1)">Roads -</button>
 <p id="pSpecials">Specials</p>
 <button id="bspecialArmy" onclick="toggleSpecial(0)">Largest Army: 0</button>
