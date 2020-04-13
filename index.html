@@ -210,11 +210,15 @@ function rollDice() {
   //Go for longest road
   //Go for largest army - only if I am getting development cards that lend themselves toward this goal or if I get wheat, stone and sheep or can get those resources
 
-//function rollSeven()
+function rollSeven() {
   //This function is used when other players roll a 7
+  var vCardCount = cardStone + cardWheat + cardSheep + cardBrick + cardWood;
+  //var vKeepCardCount = vCardCount - Math.ceil(vGivevCardCount / 2);
   //Check resource card count
   //If I have more than 7 cards then select half to give away
   //Otherwise, do nothing
+  return vCardCount;// - vKeepCardCount;
+}
   
 //function getRobbed()
   //Check resource card count
@@ -248,8 +252,12 @@ function takeTurn() {
   var vDiceRoll1 = rollDice();
   var vDiceRoll2 = rollDice();
   var vTotalRoll = vDiceRoll1 + vDiceRoll2;
-  document.getElementById("dNotifications").innerHTML = "I rolled a: " + vTotalRoll;
-  //get resource cards
+  document.getElementById("dDiceRoll").innerHTML = "I rolled a: " + vTotalRoll;
+  if (vTotalRoll == 7) {document.getElementById("dNotifications").innerHTML = "I had to get rid of " + rollSeven() + " cards. Please tap the Next button.";} 
+      else {
+        //get resource cards
+        document.getElementById("dNotifications").innerHTML = "Please add any resource cards I have earned this turn. Then tap the Next button.";
+        }
   //initiate "roll 7" to get rid of cards if I roll a 7
   //initiate "rob a player" if I roll a 7
   //Check current objective(s)
@@ -267,8 +275,10 @@ function takeTurn() {
 <p id="pVictoryPoints">Victory Points: 0</p>
 
 <h2>Actions</h2>
+<div id="dDiceRoll">Watch this space for dice rolls.</div>
 <div id="dNotifications">Watch this space for notifications.</div>
 <button onclick="takeTurn()">Begin turn</button>
+<button onclick="takeNext()">Next</button>
 <button onclick="rollSeven()">Someone rolled a 7</button>
 <button onclick="getRobbed()">Get robbed</button>
 <button onclick="robPlayer()">Rob a player</button>
